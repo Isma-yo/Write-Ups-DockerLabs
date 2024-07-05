@@ -122,5 +122,3 @@ Y ahí esta, somos el usuario mario. Ahora si ejecutamos de nuevo sudo -l vemos 
 
 ![EP2](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto14.png)
 
-![PLUGIN](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/assets/Activado.jpg)
-
