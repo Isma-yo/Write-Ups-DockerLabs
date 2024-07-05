@@ -72,7 +72,7 @@ sudo /usr/bin/node /home/mario/script.js
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/NodeClimb/foto9.jpg)
 
-Y ya somos root!
+Y ya somos root!!
 
 
 
