@@ -3,7 +3,7 @@
 Lo primero que deberemos hacer será realizar un escaneo de puertos a la máquina a la que tenemos acceso:
 
 ```shell
-nmap -p- --open -sS -sC -sV -vvv --min-rate 5000 -Pn 172.17.0.2
+nmap -p- --open -sS -sC -sV -vvv --min-rate 5000 -Pn 10.10.10.2
 ```
 
 ![NMAP](https://github.com/Isma-yo/photos/blob/main/LittlePivoting/foto.png)
