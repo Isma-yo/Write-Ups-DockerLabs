@@ -1,4 +1,4 @@
-# Maquina Master
+# MÁQUINA MASTER
 
 Lo primero que deberemos de hacer será escanear los posibles puertos que se encuentre abiertos en la máquina:
 
