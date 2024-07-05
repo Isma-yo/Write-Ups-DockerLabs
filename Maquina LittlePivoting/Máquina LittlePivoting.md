@@ -107,7 +107,7 @@ Y vemos que si ponemos la IP en el navegador conseguimos acceder:
 Procedemos a listar los directorios con gobuster:
 
 ```shell
-gobuster dir -u http://10.10.10.2/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,txt --proxy socks5://127.0.0.1:1111
+gobuster dir -u http://30.30.30.3/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,txt --proxy socks5://127.0.0.1:1111
 ```
 
 ![GB](https://github.com/Isma-yo/photos/blob/main/LittlePivoting/foto23.png)
