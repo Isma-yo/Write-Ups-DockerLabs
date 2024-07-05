@@ -2,6 +2,10 @@
 
 Lo primero que deberemos hacer será realizar un escaneo de puertos a la máquina a la que tenemos acceso:
 
+```shell
+nmap -p- --open -sS -sC -sV -vvv --min-rate 5000 -Pn 172.17.0.2
+```
+
 ![NMAP](https://github.com/Isma-yo/photos/blob/main/LittlePivoting/foto.png)
 
 Si ponemos el la IP en el navegador vemos que se nos abre una página por defecto de Apache, y en el código fuente no observamos nada extraño por lo que realizaremos fuzzing usando gobuster:
