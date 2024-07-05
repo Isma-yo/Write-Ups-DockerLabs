@@ -55,7 +55,7 @@ Y ya si ponemos la IP de la máquina podemos acceder:
 Vemos que no hay nada importante por lo que vamos a hacer fuzzing, aunque hay que cambiar un poco el comando de gobuster para poder hacer el fuzzing de manera correcta:
 
 ```shell
-gobuster dir -u http://10.10.10.2/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,txt --proxy socks5://127.0.0.1:1080
+gobuster dir -u http://20.20.20.3/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,txt --proxy socks5://127.0.0.1:1080
 ```
 
 ![FUZZ](https://github.com/Isma-yo/photos/blob/main/LittlePivoting/foto13.png)
