@@ -1,4 +1,4 @@
-# MÁQUINA CHOCOLATEFIRE
+# MÁQUINA CHOCOLATE FIRE
 
 Lo primero que deberemos de hacer será realizar un escaneo de puertos con nmap:
 
