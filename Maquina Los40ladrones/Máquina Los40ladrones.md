@@ -64,7 +64,7 @@ sudo /opt/bash
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/Los40ladrones/foto10.jpg)
 
-
+Y ya somos root!
 
 
 
