@@ -74,6 +74,6 @@ sudo ruby -e 'exec "/bin/sh"'
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/Vacaciones/foto7.jpg)
 
-
+Y ya somos root!
 
 
