@@ -70,6 +70,6 @@ https://gtfobins.github.io/gtfobins/env/#suid
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/Injection/foto11.jpg)
 
-
+Y ya somos root!
 
 
