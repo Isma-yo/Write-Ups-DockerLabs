@@ -47,6 +47,8 @@ sudo vim -c ':!/bin/sh'
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/Trust/foto8.jpg)
 
+Y ya somos root!
+
 
 
 
