@@ -24,3 +24,5 @@ Una vez descargado el exploit lo ejecutamos:
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/First%20Hacking/foto3.jpg)
 
+Y ya somos root!
+
