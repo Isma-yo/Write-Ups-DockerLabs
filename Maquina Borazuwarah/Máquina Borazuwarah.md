@@ -38,6 +38,6 @@ Si hacemos un sudo -l vemos que puede ejecutar cualquier comando como cualquier 
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/Borazuwarah/foto6.jpg)
 
-
+Y ya somos root!
 
 
