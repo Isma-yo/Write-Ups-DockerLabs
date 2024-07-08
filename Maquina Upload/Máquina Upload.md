@@ -76,6 +76,8 @@ https://gtfobins.github.io/gtfobins/env/#sudo
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/Upload/foto8.jpg)
 
+Y ya somos root!
+
 
 
 
