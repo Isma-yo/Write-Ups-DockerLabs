@@ -20,7 +20,7 @@ Tras un rato probando podemos ver que si ponemos como usuario a root encuentra s
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/Break%20My%20SSH/foto3.jpg)
 
-
+Y ya somos root!
 
 
 
