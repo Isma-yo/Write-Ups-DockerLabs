@@ -1,6 +1,6 @@
 # MÁQUINA VACACIONES
 
-Lo primeroq que tendremos que hacer será realizar un escaneo de puertos a la máquina víctima usando nmap:
+Lo primero que tendremos que hacer será realizar un escaneo de puertos a la máquina víctima usando nmap:
 
 ```shell
 nmap -p- -sS -sC -sV -vvv --min-rate 5000 -Pn 172.17.0.2
