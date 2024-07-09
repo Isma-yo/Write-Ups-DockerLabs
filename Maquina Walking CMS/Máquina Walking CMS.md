@@ -92,7 +92,7 @@ find / -perm -4000 2>/dev/null
 
 ![ROOT](https://github.com/Isma-yo/photos/blob/main/Walking%20CMS/foto12.jpg)
 
-
+Y ya somos root!
 
 
 
