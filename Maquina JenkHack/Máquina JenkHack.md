@@ -81,7 +81,7 @@ Tenemos contraseña, vamos a probarla:
 
 ![USER](https://github.com/Isma-yo/photos/blob/main/JenkHack/foto10.JPG)
 
-Ahora somo el usuario jenkhack, ejecutaremos el comando sudo -l para ver si podemos ejecutar algo como root:
+Ahora somos el usuario jenkhack, ejecutaremos el comando sudo -l para ver si podemos ejecutar algo como root:
 
 ![SUDO](https://github.com/Isma-yo/photos/blob/main/JenkHack/foto11.JPG)
 
